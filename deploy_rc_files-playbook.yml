@@ -1,0 +1,32 @@
+---
+- name: copy pbucz config files
+  hosts: all
+  tasks:
+  - name: copy .bash_login
+    copy:
+      src: /home/pbucz/.bash_login
+      dest: /home/pbucz/.bash_login
+      owner: pbucz
+      group: pbucz
+      mode: 0644
+  - name: copy .bash_profile
+    copy:
+      src: /home/pbucz/.bash_profile
+      dest: /home/pbucz/.bash_profile
+      owner: pbucz
+      group: pbucz
+      mode: 0644
+  - name: copy .bash_rc
+    copy:
+      src: /home/pbucz/.bashrc
+      dest: /home/pbucz/.bashrc
+      owner: pbucz
+      group: pbucz
+      mode: 0644
+  - name: copy .vimrc
+    copy:
+      src: /home/pbucz/.vimrc
+      dest: /home/pbucz/.vimrc
+      owner: pbucz
+      group: pbucz
+      mode: 0644

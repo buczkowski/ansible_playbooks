@@ -1,0 +1,8 @@
+---
+- hosts: centos7
+  tasks:
+    - name: upgrade all packages
+      become: yes
+      yum:
+          name: '*'
+          state: latest

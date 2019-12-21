@@ -1,0 +1,13 @@
+---
+- name: check for updates
+  hosts: debian
+  tasks:
+    - name: check for updates (apt)
+      become: yes
+      apt: 
+        force_apt_get: yes
+        update_cache: yes 
+        upgrade: safe 
+        install-recommends: no
+      register: apt_output
+    - debug: var=apt_output

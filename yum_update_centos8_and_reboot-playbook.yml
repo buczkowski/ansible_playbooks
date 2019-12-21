@@ -1,0 +1,11 @@
+---
+- hosts: centos8
+  tasks:
+    - name: upgrade all packages
+      become: yes
+      yum:
+          name: '*'
+          state: latest
+    - name: reboot
+      become: yes
+      reboot:

@@ -1,0 +1,72 @@
+---
+- name: deploy standard configs for centos7, centos8 and debian
+  hosts: all
+  tasks:
+  - name: set motd
+    become: yes
+    copy:
+      src: /home/pbucz/motd
+      dest: /etc/motd
+      owner: root
+      group: root
+      mode: 0644
+- name: install packages on centos
+  hosts: centos7 centos8
+  tasks:
+  - name: install vim
+    become: yes
+    yum: 
+      name: vim
+      state: latest
+  - name: install wget
+    become: yes
+    yum:
+      name: wget       
+      state: latest
+  - name: install curl
+    become: yes
+    yum:
+      name: curl
+      state: latest
+  - name: install git
+    become: yes
+    yum:
+      name: git
+      state: latest
+  - name: install glances
+    become: yes
+    yum:
+      name: glances
+      state: latest
+  - name: install tmux
+    become: yes
+    yum:
+      name: tmux
+      state: latest
+- name: install packages on debian
+  hosts: debian
+  tasks:
+  - name: install vim
+    become: yes
+    apt:
+      name: vim
+  - name: install wget
+    become: yes
+    apt:
+      name: wget
+  - name: install curl
+    become: yes
+    apt:
+      name: curl
+  - name: install git
+    become: yes
+    apt:
+      name: git
+  - name: install glances
+    become: yes
+    apt:
+      name: glances
+  - name: install tmux
+    become: yes
+    apt:
+      name: tmux

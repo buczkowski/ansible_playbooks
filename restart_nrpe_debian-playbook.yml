@@ -1,0 +1,9 @@
+---
+- name: restart nrpe
+  hosts: debian
+  tasks:
+    - name: restart nrpe everywhere  
+      become: yes
+      service: 
+        name: nagios-nrpe-server
+        state: restarted

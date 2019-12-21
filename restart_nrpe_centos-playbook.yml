@@ -1,0 +1,9 @@
+---
+- name: restart nrpe
+  hosts: centos7 centos8
+  tasks:
+    - name: restart nrpe everywhere  
+      become: yes
+      service: 
+        name: nrpe
+        state: restarted
