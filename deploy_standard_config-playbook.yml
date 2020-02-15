@@ -33,15 +33,18 @@
     yum:
       name: git
       state: latest
-  - name: install glances
-    become: yes
-    yum:
-      name: glances
-      state: latest
   - name: install tmux
     become: yes
     yum:
       name: tmux
+      state: latest
+- name: install packages on centos7
+  hosts: centos7
+  tasks:
+  - name: install net-tools
+    become: yes
+    yum:
+      name: net-tools
       state: latest
 - name: install packages on debian
   hosts: debian
@@ -62,10 +65,6 @@
     become: yes
     apt:
       name: git
-  - name: install glances
-    become: yes
-    apt:
-      name: glances
   - name: install tmux
     become: yes
     apt:
