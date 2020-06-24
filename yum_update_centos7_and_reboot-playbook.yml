@@ -1,7 +1,7 @@
 ---
 - hosts: centos7:!admin01.buczkowski.local
   tasks:
-    - name: upgrade all packages and reboot all centos7 hosts except for admin01 and the kubernetes cluster
+    - name: upgrade all packages and reboot all centos7 hosts except for admin01
       become: yes
       yum:
           name: '*'
